@@ -20,9 +20,9 @@ public class OptionsPanel extends JPanel {
 		add(b);
 		Button4 b1 = new Button4();
 		add(b1);
-		/*Triangle triangleButton = new Triangle();
-		add(triangleButton);
-		Square squareButton = new Square();
-		add(squareButton);*/
+		Button5 b5 = new Button5();
+		add(b5);
+		
+		
 	}
 }
