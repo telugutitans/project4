@@ -17,18 +17,10 @@ public class OptionsPanel extends JPanel {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		setBorder(blackline);
 		setLayout(new GridLayout(7, 1));
-		Button6 b = new Button6();
-		add(b);
-		Button4 b1 = new Button4();
-		add(b1);
-		Button5 b5 = new Button5();
-		add(b5);
-		Button7 b7 = new Button7();
-		add(b7);
 		for(int i=0; i<7; i++) {
 	        try {
-	          Class<?> ButtonClass = Class.forName("Button"+i+1);
-	          add((Component) ButtonClass.getDeclaredConstructor().newInstance());
+	          Class<?> ButtonClass = Class.forName("Button"+(i+1));
+	          add((JButton) ButtonClass.getDeclaredConstructor().newInstance());
 	        } catch (Exception e) {
 	        	System.out.println(i+1);
 	        }
