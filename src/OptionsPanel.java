@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.*;
@@ -24,6 +25,13 @@ public class OptionsPanel extends JPanel {
 		add(b5);
 		Button7 b7 = new Button7();
 		add(b7);
-		
+		for(int i=0; i<7; i++) {
+	        try {
+	          Class<?> ButtonClass = Class.forName("Button"+i+1);
+	          add((Component) ButtonClass.getDeclaredConstructor().newInstance());
+	        } catch (Exception e) {
+	        	System.out.println(i+1);
+	        }
+		}
 	}
 }
