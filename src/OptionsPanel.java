@@ -22,7 +22,8 @@ public class OptionsPanel extends JPanel {
 		add(b1);
 		Button5 b5 = new Button5();
 		add(b5);
-		
+		Button7 b7 = new Button7();
+		add(b7);
 		
 	}
 }
