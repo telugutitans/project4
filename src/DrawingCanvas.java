@@ -55,23 +55,6 @@ public class DrawingCanvas extends JPanel implements MouseListener {
 			this.repaint();
 			break;
 			
-			case 4: DrawShape4 figure4 = new DrawShape4(e.getX() - 50, e.getY(), this);
-			this.add((JLabel) figure4);
-			shapeObject.add(figure4);
-			this.repaint();
-			break;
-			
-			case 6: DrawShape6 figure6 = new DrawShape6(e.getX() - 50, e.getY(), this);
-			this.add((JLabel) figure6);
-			shapeObject.add(figure6);
-			this.repaint();
-			break;
-
-			case 5: DrawShape5 figure5 = new DrawShape5(e.getX() - 50, e.getY(), this);
-			this.add((JLabel) figure5);
-			shapeObject.add(figure5);
-			this.repaint();
-
 			case 2: DrawShape2 figure2 = new DrawShape2(e.getX() - 50, e.getY(), this);
 			this.add((JLabel) figure2);
 			shapeObject.add(figure2);
@@ -81,6 +64,23 @@ public class DrawingCanvas extends JPanel implements MouseListener {
 			case 3: DrawShape3 figure3 = new DrawShape3(e.getX() - 50, e.getY(), this);
 			this.add((JLabel) figure3);
 			shapeObject.add(figure3);
+			this.repaint();
+			break;
+
+			case 4: DrawShape4 figure4 = new DrawShape4(e.getX() - 50, e.getY(), this);
+			this.add((JLabel) figure4);
+			shapeObject.add(figure4);
+			this.repaint();
+			break;
+
+			case 5: DrawShape5 figure5 = new DrawShape5(e.getX() - 50, e.getY(), this);
+			this.add((JLabel) figure5);
+			shapeObject.add(figure5);
+			this.repaint();
+			
+			case 6: DrawShape6 figure6 = new DrawShape6(e.getX() - 50, e.getY(), this);
+			this.add((JLabel) figure6);
+			shapeObject.add(figure6);
 			this.repaint();
 			break;
 
