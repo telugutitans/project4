@@ -16,9 +16,9 @@ public class OptionsPanel extends JPanel {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		setBorder(blackline);
 		setLayout(new GridLayout(7, 1));
-		Button1 b = new Button1();
+		Button6 b = new Button6();
 		add(b);
-		Button3 b1 = new Button3();
+		Button4 b1 = new Button4();
 		add(b1);
 		/*Triangle triangleButton = new Triangle();
 		add(triangleButton);
