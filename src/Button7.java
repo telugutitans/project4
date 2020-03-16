@@ -20,7 +20,7 @@ public class Button7 extends JButton {
 		Dimension size = getPreferredSize();
 		setPreferredSize(size);
 		setContentAreaFilled(false);
-		event = new SelectionEvent(this, "7");
+		event = new SelectionEvent(this, 7);
 	}
 
 	protected void paintComponent(Graphics g) {
