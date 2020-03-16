@@ -29,12 +29,9 @@ public class DrawShape5 extends DrawShape implements MouseListener, MouseMotionL
 		g.setColor(Color.ORANGE);
 		g.drawRect(1, 1, WIDTH - 5, HEIGHT - 5);
 		g.setColor(Color.BLACK);
-        g.fillRect(WIDTH - 20, HEIGHT/2-5, 
-        10, 10);
-        g.fillRect(WIDTH - 180, HEIGHT/3-5, 
-        10, 10);
-        g.fillRect(WIDTH - 180, 2*HEIGHT/3-5, 
-        10, 10);
+		g.fillRect(WIDTH - 180, HEIGHT/2-5, 10, 10);
+		g.fillRect(WIDTH - 20, HEIGHT/2-15, 10, 10);
+		g.fillRect(WIDTH - 20, HEIGHT/2+7, 10, 10);
 
 	}
 
