@@ -54,9 +54,19 @@ public class DrawingCanvas extends JPanel implements MouseListener {
 			shapeObject.add(figure);
 			this.repaint();
 			break;
-			case 7: DrawShape1 figure7 = new DrawShape7(e.getX() - 50, e.getY(), this);
-			this.add((JLabel) figure);
-			shapeObject.add(figure);
+			case 4: DrawShape4 figure4 = new DrawShape4(e.getX() - 50, e.getY(), this);
+			this.add((JLabel) figure4);
+			shapeObject.add(figure4);
+			this.repaint();
+			break;
+			case 6: DrawShape6 figure6 = new DrawShape6(e.getX() - 50, e.getY(), this);
+			this.add((JLabel) figure6);
+			shapeObject.add(figure6);
+			this.repaint();
+			break;
+			case 7: DrawShape7 figure7 = new DrawShape7(e.getX() - 50, e.getY(), this);
+			this.add((JLabel) figure7);
+			shapeObject.add(figure7);
 			this.repaint();
 			break;
 		}
