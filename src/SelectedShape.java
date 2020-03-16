@@ -4,5 +4,5 @@
  * @version 1.0
  **/
 public class SelectedShape {
-	public static String name = "null";
+	public static int No = 0;
 }

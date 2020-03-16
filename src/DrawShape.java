@@ -21,13 +21,13 @@ public class DrawShape extends JLabel {
 	int positionX;
 	int positionY;
 	DrawingCanvas canvas;
-	String shape;
+	int shapeNo;
 	ArrayList<Point[]> connections = new ArrayList<Point[]>();
 
-	public DrawShape(DrawingCanvas c, String name, int posX, int posY) {
+	public DrawShape(DrawingCanvas c, int no, int posX, int posY) {
 		positionX = posX;
 		positionY = posY;
-		shape = name;
+		shapeNo = no;
 		canvas = c;
 	}
 }

@@ -9,19 +9,19 @@ import javax.swing.JButton;
  **/
 public class SelectionEvent implements ActionListener {
 	private JButton shapeButton;
-	private String shape;
+	private int shapeNo;
 	private SelectedShape select;
 
-	public SelectionEvent(JButton button, String shape) {
+	public SelectionEvent(JButton button, int shapeNo) {
 		this.shapeButton = button;
 		this.shapeButton.addActionListener(this);
-		this.shape = shape;
+		this.shapeNo = shapeNo;
 		select = new SelectedShape();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		select.name = shape;
+		select.No = shapeNo;
 	}
 
 }

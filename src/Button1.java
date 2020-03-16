@@ -18,11 +18,9 @@ public class Button1 extends JButton {
 	public Button1() {
 		super("(");
 		Dimension size = getPreferredSize();
-		//size.width = 80;
-		//size.height = 50;
 		setPreferredSize(size);
 		setContentAreaFilled(false);
-		event = new SelectionEvent(this, "1");
+		event = new SelectionEvent(this, 1);
 	}
 
 	protected void paintComponent(Graphics g) {
