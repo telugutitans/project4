@@ -36,10 +36,16 @@ public class Frame extends JFrame {
 		menubar.add(menu);
 		JMenuItem save = new JMenuItem("Save");
 		JMenuItem load = new JMenuItem("Load");
+		JMenuItem compile = new JMenuItem("Compile");
+		JMenuItem newspace = new JMenuItem("NewSpace");
 		load.addActionListener(new LoadManager(canvas));
 		save.addActionListener(new SaveManager(canvas));
+		compile.addActionListener(new Compile(canvas));
+		newspace.addActionListener(new NewSpace(canvas));
 		menu.add(save);
 		menu.add(load);
+		menu.add(compile);
+		menu.add(newspace);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
