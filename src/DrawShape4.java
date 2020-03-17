@@ -68,7 +68,7 @@ public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionL
 	}
 
 	private boolean contain(int x, int y) {
-		if ((x > 2 && x < 7 && y > 2 && y < 97) || (x > 92 && x < 97 && y > 2 && y < 97))
+		if ((x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-5 && y < HEIGHT/2+5)|| (x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT/2-20 && y < HEIGHT/2-10)||(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT-20 && y < HEIGHT-10))
 			return true;
 		else
 			return false;
