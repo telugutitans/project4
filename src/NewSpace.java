@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import javax.swing.JFileChooser;
+import javax.swing.JTabbedPane;
 /**
  * 
  * @author Tarun snehith kishore reddy Karna
@@ -13,15 +14,15 @@ import javax.swing.JFileChooser;
  */
 public class NewSpace implements ActionListener {
 	private String fileName;
-	private DrawingCanvas canvas;
+	private JTabbedPane tabbedPane;
 
-	public NewSpace(DrawingCanvas c) {
-		canvas = c;
+	public NewSpace(JTabbedPane tabbedPane) {
+		this.tabbedPane = tabbedPane;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		tabbedPane.add("no",new DrawingCanvas());
 		
 	}
 

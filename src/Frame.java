@@ -27,7 +27,15 @@ public class Frame extends JFrame {
 		options = new OptionsPanel();
 		content.add(options);
 		canvas = new DrawingCanvas();
-		content.add(canvas);
+		JTabbedPane tabbedPane = new JTabbedPane();
+		content.add(tabbedPane);
+		addMenu(tabbedPane);
+		this.pack();
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+	}
+	
+	public void addMenu(JTabbedPane tabbedPane) {
 		JMenuBar menubar = new JMenuBar();
 		menubar.setMinimumSize(new Dimension(60, 40));
 		final JLabel label = new JLabel();
@@ -38,19 +46,16 @@ public class Frame extends JFrame {
 		JMenuItem load = new JMenuItem("Load");
 		JMenuItem compile = new JMenuItem("Compile");
 		JMenuItem newspace = new JMenuItem("NewSpace");
-		load.addActionListener(new LoadManager(canvas));
-		save.addActionListener(new SaveManager(canvas));
-		compile.addActionListener(new Compile(canvas));
-		newspace.addActionListener(new NewSpace(canvas));
+		//load.addActionListener(new LoadManager(canvas));
+		//save.addActionListener(new SaveManager(canvas));
+		//compile.addActionListener(new Compile(canvas));
+		newspace.addActionListener(new NewSpace(tabbedPane));
 		menu.add(save);
 		menu.add(load);
 		menu.add(compile);
 		menu.add(newspace);
-		this.pack();
-		this.setLocationRelativeTo(null);
-		this.setVisible(true);
 	}
-
+	
 	public static void main(String[] args) {
 		new Frame();
 	}

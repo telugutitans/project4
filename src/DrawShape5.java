@@ -69,7 +69,9 @@ public class DrawShape5 extends DrawShape implements MouseListener, MouseMotionL
 	}
 
 	private boolean contain(int x, int y) {
-		if ((x > WIDTH - 180 && x < WIDTH - 170 && y > HEIGHT/2-5 && y < HEIGHT/2+5) || (x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-15 && y < HEIGHT/2-5) || (x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2+7 && y < HEIGHT/2-3))
+		if ((x > WIDTH - 180 && x < WIDTH - 170 && y > HEIGHT/2-5 && y < HEIGHT/2+5) || 
+				(x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-15 && y < HEIGHT/2-5) || 
+				(x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2+7 && y < HEIGHT/2+17))
 			return true;
 		else
 			return false;
