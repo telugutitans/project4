@@ -10,15 +10,17 @@ public class StoreClickPoints {
 	private static int numPoints = 0;
 	private static Point point1;
 	private static Point point2;
+	private static DrawShape shape1;
 
 	public StoreClickPoints(int x, int y, DrawShape shape) {
 		if (numPoints == 0) {
+			shape1 = shape;
 			numPoints += 1;
 			point1 = new Point(x, y);
 			Point relative = new Point(x - shape.positionX, y - shape.positionY);
 			Point[] shapePoints = { point1, relative };
 			shape.connections.add(shapePoints);
-		} else {
+		} else if(!shape.equals(shape1)) {
 			point2 = new Point(x, y);
 			Point[] points = { point1, point2 };
 			Point relative = new Point(x - shape.positionX, y - shape.positionY);
