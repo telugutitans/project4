@@ -13,21 +13,20 @@ import javax.swing.JTabbedPane;
  *
  */
 public class NewSpace implements ActionListener {
-	private String fileName;
 	private JTabbedPane tabbedPane;
-
+	
+	
 	public NewSpace(JTabbedPane tabbedPane) {
 		this.tabbedPane = tabbedPane;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		tabbedPane.add("no",new DrawingCanvas());
-		
+		int count = tabbedPane.getTabCount();
+		tabbedPane.add("Tab"+count,new DrawingCanvas());
 	}
 
 	public static void addActionListener(NewSpace newspace) {
 		// TODO Auto-generated method stub
-		
 	}
 }

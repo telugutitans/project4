@@ -16,6 +16,7 @@ public class Frame extends JFrame {
 	private static final String FRAME_TITLE = "Team4";
 	JFrame frame = new JFrame("Swing Tester");
 	private DrawingCanvas canvas;
+	private JTabbedPane tabbedPane;
 	private OptionsPanel options;
 
 	public Frame() {
@@ -26,8 +27,7 @@ public class Frame extends JFrame {
 		content.setLayout(new BoxLayout(content, BoxLayout.X_AXIS));
 		options = new OptionsPanel();
 		content.add(options);
-		canvas = new DrawingCanvas();
-		JTabbedPane tabbedPane = new JTabbedPane();
+		tabbedPane = new JTabbedPane();
 		content.add(tabbedPane);
 		addMenu(tabbedPane);
 		this.pack();
@@ -46,9 +46,9 @@ public class Frame extends JFrame {
 		JMenuItem load = new JMenuItem("Load");
 		JMenuItem compile = new JMenuItem("Compile");
 		JMenuItem newspace = new JMenuItem("NewSpace");
-		//load.addActionListener(new LoadManager(canvas));
-		//save.addActionListener(new SaveManager(canvas));
-		//compile.addActionListener(new Compile(canvas));
+		load.addActionListener(new LoadManager(tabbedPane));
+		save.addActionListener(new SaveManager(tabbedPane));
+		compile.addActionListener(new Compile(canvas));
 		newspace.addActionListener(new NewSpace(tabbedPane));
 		menu.add(save);
 		menu.add(load);

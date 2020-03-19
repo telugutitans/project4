@@ -33,6 +33,7 @@ public class DrawShape7 extends DrawShape implements MouseListener, MouseMotionL
         10, 10);
         g.fillRect(WIDTH - 180, HEIGHT/2-5, 
         10, 10);
+        g.drawString("_", WIDTH/2, HEIGHT/2);
 
 	}
 

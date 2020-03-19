@@ -31,6 +31,7 @@ public class DrawShape6 extends DrawShape implements MouseListener, MouseMotionL
 		g.setColor(Color.BLACK);
 		g.fillRect(WIDTH/2-90, HEIGHT/2-20, 10, 40);
 		g.fillRect(WIDTH-20, HEIGHT/2-20, 10, 40);
+		g.drawString("||", WIDTH/2, HEIGHT/2);
 	}
 
 	@Override

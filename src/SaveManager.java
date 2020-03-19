@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import javax.swing.JFileChooser;
+import javax.swing.JTabbedPane;
 /**
  * 
  * @author Ashwath Reddy Koppala
@@ -15,8 +16,10 @@ public class SaveManager implements ActionListener {
 	private String fileName;
 	private DrawingCanvas canvas;
 
-	public SaveManager(DrawingCanvas c) {
-		canvas = c;
+	public SaveManager(JTabbedPane pane) {
+		int index = pane.getSelectedIndex();
+		if(index>=0)
+			canvas = (DrawingCanvas) pane.getTabComponentAt(index);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -42,6 +45,5 @@ public class SaveManager implements ActionListener {
 		} catch (IOException i) {
 			i.printStackTrace();
 		}
-
 	}
 }

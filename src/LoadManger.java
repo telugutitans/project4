@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
+import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  * 
@@ -16,8 +17,10 @@ class LoadManager implements ActionListener {
 	private String fileName;
 	private DrawingCanvas canvas;
 
-	public LoadManager(DrawingCanvas c) {
-		canvas = c;
+	public LoadManager(JTabbedPane pane) {
+		int index = pane.getSelectedIndex();
+		if(index>=0)
+			canvas = (DrawingCanvas) pane.getTabComponentAt(index);
 	}
 
 	public void actionPerformed(ActionEvent e) {

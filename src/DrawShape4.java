@@ -32,6 +32,7 @@ public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionL
 		g.fillRect(WIDTH - 20, HEIGHT/2-5, 10, 10);
 		g.fillRect(WIDTH/2-90, HEIGHT/2-20, 10, 10);
 		g.fillRect(WIDTH/2-90, HEIGHT-20, 10, 10);
+		g.drawString(">", WIDTH/2, HEIGHT/2);
 	}
 
 	@Override
@@ -68,7 +69,9 @@ public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionL
 	}
 
 	private boolean contain(int x, int y) {
-		if ((x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-5 && y < HEIGHT/2+5)|| (x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT/2-20 && y < HEIGHT/2-10)||(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT-20 && y < HEIGHT-10))
+		if ((x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-5 && y < HEIGHT/2+5)||
+				(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT/2-20 && y < HEIGHT/2-10)||
+				(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT-20 && y < HEIGHT-10))
 			return true;
 		else
 			return false;
@@ -80,7 +83,6 @@ public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionL
 			System.out.print("Square clicked");
 			StoreClickPoints c1 = new StoreClickPoints(e.getX() + currentX, 
 												e.getY() + currentY, this);
-
 		}
 	}
 

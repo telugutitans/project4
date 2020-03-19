@@ -32,6 +32,7 @@ public class DrawShape5 extends DrawShape implements MouseListener, MouseMotionL
 		g.fillRect(WIDTH - 180, HEIGHT/2-5, 10, 10);
 		g.fillRect(WIDTH - 20, HEIGHT/2-15, 10, 10);
 		g.fillRect(WIDTH - 20, HEIGHT/2+7, 10, 10);
+		g.drawString("@", WIDTH/2, HEIGHT/2);
 
 	}
 

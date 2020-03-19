@@ -16,7 +16,7 @@ public class Button3 extends JButton {
 	private static Icon label;
 
 	public Button3() {
-		super(")");
+		super("<");
 		Dimension size = getPreferredSize();
 		setPreferredSize(size);
 		setContentAreaFilled(false);
