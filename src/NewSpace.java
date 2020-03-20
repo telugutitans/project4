@@ -23,6 +23,7 @@ public class NewSpace implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int count = tabbedPane.getTabCount();
+		count = count+1;
 		tabbedPane.add("Tab"+count,new DrawingCanvas());
 	}
 
