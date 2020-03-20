@@ -29,11 +29,11 @@ public class DrawShape5 extends DrawShape implements MouseListener, MouseMotionL
 		g.setColor(Color.ORANGE);
 		g.drawRect(1, 1, WIDTH - 5, HEIGHT - 5);
 		g.setColor(Color.BLACK);
-		g.fillRect(WIDTH - 180, HEIGHT/2-5, 10, 10);
+		g.fillRect(WIDTH - 180, HEIGHT/2-15, 10, 10);
+		g.fillRect(WIDTH - 180, HEIGHT/2+7, 10, 10);
 		g.fillRect(WIDTH - 20, HEIGHT/2-15, 10, 10);
 		g.fillRect(WIDTH - 20, HEIGHT/2+7, 10, 10);
 		g.drawString("@", WIDTH/2, HEIGHT/2);
-
 	}
 
 	@Override
@@ -70,7 +70,8 @@ public class DrawShape5 extends DrawShape implements MouseListener, MouseMotionL
 	}
 
 	private boolean contain(int x, int y) {
-		if ((x > WIDTH - 180 && x < WIDTH - 170 && y > HEIGHT/2-5 && y < HEIGHT/2+5) || 
+		if ((x > WIDTH - 180 && x < WIDTH - 170 && y > HEIGHT/2-15 && y < HEIGHT/2-5) ||
+				(x > WIDTH - 180 && x < WIDTH - 170 && y > HEIGHT/2+7 && y < HEIGHT/2+17)||
 				(x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-15 && y < HEIGHT/2-5) || 
 				(x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2+7 && y < HEIGHT/2+17))
 			return true;
