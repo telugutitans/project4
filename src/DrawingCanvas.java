@@ -28,7 +28,10 @@ public class DrawingCanvas extends JPanel implements MouseListener {
 
 	public void load() {
 		for (int i = 0; i < shapeObject.size(); i++) {
-			this.add((JLabel) shapeObject.get(i));
+			DrawShape label = (DrawShape) shapeObject.get(i);
+			label.canvas = this;
+			this.add(label);
+			this.repaint();
 		}
 	}
 

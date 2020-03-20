@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 import javax.swing.JFileChooser;
 import javax.swing.JTabbedPane;
 /**
@@ -14,15 +16,19 @@ import javax.swing.JTabbedPane;
  */
 public class SaveManager implements ActionListener {
 	private String fileName;
-	private DrawingCanvas canvas;
+	//private JTabbedPane pane;
+	private Frame frame;
 
-	public SaveManager(JTabbedPane pane) {
-		int index = pane.getSelectedIndex();
-		if(index>=0)
-			canvas = (DrawingCanvas) pane.getTabComponentAt(index);
+	public SaveManager(Frame frame) {
+		//this.pane = pane;
+		this.frame = frame;
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		JTabbedPane pane = frame.getTabbedPane();
+		int index = pane.getSelectedIndex();
+		ArrayList<DrawingCanvas> canvasArray = frame.getCanvasArray();
+		DrawingCanvas	canvas = canvasArray.get(index);
 		FileOutputStream fileOutStream = null;
 		ObjectOutputStream objectOutStream = null;
 		try {

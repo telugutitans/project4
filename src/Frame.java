@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,6 +20,7 @@ public class Frame extends JFrame {
 	private DrawingCanvas canvas;
 	private JTabbedPane tabbedPane;
 	private OptionsPanel options;
+	private ArrayList<DrawingCanvas> canvasArray = new ArrayList<DrawingCanvas>();
 
 	public Frame() {
 		this.setTitle(FRAME_TITLE);
@@ -46,14 +49,34 @@ public class Frame extends JFrame {
 		JMenuItem load = new JMenuItem("Load");
 		JMenuItem compile = new JMenuItem("Compile");
 		JMenuItem newspace = new JMenuItem("NewSpace");
-		load.addActionListener(new LoadManager(tabbedPane));
-		save.addActionListener(new SaveManager(tabbedPane));
+		load.addActionListener(new LoadManager(this));
+		save.addActionListener(new SaveManager(this));
 		compile.addActionListener(new Compile(canvas));
-		newspace.addActionListener(new NewSpace(tabbedPane));
+		newspace.addActionListener(new NewSpace(this));
 		menu.add(save);
 		menu.add(load);
 		menu.add(compile);
 		menu.add(newspace);
+	}
+	
+	public JTabbedPane getTabbedPane()
+	{
+		return tabbedPane;
+	}
+	
+	public void setTabbedPane(JTabbedPane pane)
+	{
+		tabbedPane = pane;
+	}
+	
+	public ArrayList<DrawingCanvas> getCanvasArray()
+	{
+		return canvasArray;
+	}
+	
+	public void setCanvasArray(ArrayList<DrawingCanvas> array)
+	{
+		canvasArray = array;
 	}
 	
 	public static void main(String[] args) {

@@ -15,15 +15,20 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 class LoadManager implements ActionListener {
 	private String fileName;
-	private DrawingCanvas canvas;
+	//private JTabbedPane pane;
+	private Frame frame;
 
-	public LoadManager(JTabbedPane pane) {
-		int index = pane.getSelectedIndex();
-		if(index>=0)
-			canvas = (DrawingCanvas) pane.getTabComponentAt(index);
+	public LoadManager(Frame frame) {
+		this.frame = frame;
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		JTabbedPane pane = frame.getTabbedPane();
+		int index = pane.getSelectedIndex();
+		ArrayList<DrawingCanvas> canvasArray = frame.getCanvasArray();
+		DrawingCanvas	canvas = canvasArray.get(index);
+		System.out.println("index of tab:"+index);
+		//DrawingCanvas canvas = (DrawingCanvas) pane.getTabComponentAt(index);
 		FileInputStream fileInStream = null;
 		ObjectInputStream objectInStream = null;
 		try {
