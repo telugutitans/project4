@@ -25,16 +25,15 @@ public class DrawShape extends JLabel {
 	int inputSize;
 	int outputSize;
 	ArrayList<Point[]> connections = new ArrayList<Point[]>();
-	ArrayList<Object>[] input;
-	ArrayList<Object>[] output = new ArrayList[outputSize];
+	ArrayList<Object>[] input = new ArrayList[2];
+	ArrayList<Object>[] output = new ArrayList[2];
 
 	public DrawShape(DrawingCanvas c, int no, int posX, int posY) {
 		positionX = posX;
 		positionY = posY;
 		shapeNo = no;
-		System.out.println("assddffyfgtfdsfgrhtyjthtgrfewgrehtrjythtgr");
 		canvas = c;
-		switch(no){
+		/*switch(no){
 		case 1:
 			inputSize=0;
 			outputSize=1;
@@ -78,6 +77,6 @@ public class DrawShape extends JLabel {
 			input = new ArrayList[inputSize];
 			output = new ArrayList[outputSize];
 			break;
-		}
+		}*/
 	}
 }

@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
 /**
  * 
  * @author Rohith Varma Gaddam
@@ -35,22 +36,25 @@ public class StoreClickPoints {
 			shape.canvas.lineArray.add(points);
 			shape.canvas.repaint();
 			numPoints = 0;
-			
+			updateShape1();
+			updateShape2();
 		}
 	}
 	
-	public void updateshape1()
+	public void updateShape1()
 	{
 		if(index1/2==0)
 		{
 			if(index1%2==0)
 			{
+				shape1.input[0]=new ArrayList<Object>();
 				shape1.input[0].add(shape2);
 				shape1.input[0].add(index2);
 			}
 			
 			if(index1%2==1)
 			{
+				shape1.input[1]=new ArrayList<Object>();
 				shape1.input[1].add(shape2);
 				shape1.input[1].add(index2);
 			}
@@ -60,18 +64,55 @@ public class StoreClickPoints {
 		{
 			if(index1%2==0)
 			{
+				shape1.output[0]=new ArrayList<Object>();
 				shape1.output[0].add(shape2);
 				shape1.output[0].add(index2);
 			}
 			
 			if(index1%2==1)
 			{
+				shape1.output[1]=new ArrayList<Object>();
 				shape1.output[1].add(shape2);
 				shape1.output[1].add(index2);
 			}
 		}
 	}
 	
-	
+	public void updateShape2()
+	{
+		if(index2/2==0)
+		{
+			if(index2%2==0)
+			{
+				shape2.input[0]=new ArrayList<Object>();
+				shape2.input[0].add(shape1);
+				shape2.input[0].add(index1);
+			}
+			
+			if(index2%2==1)
+			{
+				shape2.input[1]=new ArrayList<Object>();
+				shape2.input[1].add(shape1);
+				shape2.input[1].add(index1);
+			}
+		}
+		
+		else if(index2/2==1)
+		{
+			if(index2%2==0)
+			{
+				shape2.output[0]=new ArrayList<Object>();
+				shape2.output[0].add(shape1);
+				shape2.output[0].add(index1);
+			}
+			
+			if(index2%2==1)
+			{
+				shape2.output[1]=new ArrayList<Object>();
+				shape2.output[1].add(shape1);
+				shape2.output[1].add(index1);
+			}
+		}
+	}
 
 }
