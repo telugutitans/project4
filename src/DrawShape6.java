@@ -15,7 +15,7 @@ public class DrawShape6 extends DrawShape implements MouseListener, MouseMotionL
 	private int WIDTH = 200;
 
 	public DrawShape6(int posX, int posY, DrawingCanvas c) {
-		super(c, 1, posX, posY);
+		super(c, 6, posX, posY);
 		currentX = posX;
 		currentY = posY;
 		Dimension size = new Dimension(HEIGHT, WIDTH);

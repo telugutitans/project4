@@ -17,7 +17,6 @@ import javax.swing.JLabel;
 public class Frame extends JFrame {
 	private static final String FRAME_TITLE = "Team4";
 	JFrame frame = new JFrame("Swing Tester");
-	private DrawingCanvas canvas;
 	private JTabbedPane tabbedPane;
 	private OptionsPanel options;
 	private ArrayList<DrawingCanvas> canvasArray = new ArrayList<DrawingCanvas>();
@@ -32,6 +31,9 @@ public class Frame extends JFrame {
 		content.add(options);
 		tabbedPane = new JTabbedPane();
 		content.add(tabbedPane);
+		DrawingCanvas c = new DrawingCanvas(); 
+		tabbedPane.add("Tab1",c);
+		canvasArray.add(c);
 		addMenu(tabbedPane);
 		this.pack();
 		this.setLocationRelativeTo(null);
@@ -51,7 +53,7 @@ public class Frame extends JFrame {
 		JMenuItem newspace = new JMenuItem("NewSpace");
 		load.addActionListener(new LoadManager(this));
 		save.addActionListener(new SaveManager(this));
-		compile.addActionListener(new Compile(canvas));
+		compile.addActionListener(new Compile(this));
 		newspace.addActionListener(new NewSpace(this));
 		menu.add(save);
 		menu.add(load);
