@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.JOptionPane;
+
 public class DrawShape7 extends DrawShape implements MouseListener, MouseMotionListener {
 	private int currentX;
 	private int currentY;
@@ -13,6 +15,7 @@ public class DrawShape7 extends DrawShape implements MouseListener, MouseMotionL
 	private int relativeY;
 	private int HEIGHT = 60;
 	private int WIDTH = 200;
+	private String value;
 
 	public DrawShape7(int posX, int posY, DrawingCanvas c) {
 		super(c, 1, posX, posY);
@@ -96,6 +99,15 @@ public class DrawShape7 extends DrawShape implements MouseListener, MouseMotionL
 			StoreClickPoints c1 = new StoreClickPoints(e.getX() + currentX, 
 												e.getY() + currentY, this, index);
 
+		}
+		else if(value==null) {
+			value = JOptionPane.showInputDialog(null,
+					 "What is your value?",
+					 "Enter the value",
+					 JOptionPane.QUESTION_MESSAGE);
+		}
+		else {
+			JOptionPane.showMessageDialog(null,value,"Shape value", 1 );
 		}
 	}
 
