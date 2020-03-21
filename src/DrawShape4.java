@@ -68,23 +68,33 @@ public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionL
 		}
 	}
 
-	private boolean contain(int x, int y) {
+	private int contain(int x, int y) {
 		if (x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-5 && y < HEIGHT/2+5)
-			return true;
+			if (super.output[0] != null)
+				return -1;
+			else
+				return 2;
 		else if(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT/2-20 && y < HEIGHT/2-10)
-			return true;
+			if (super.input[0] != null)
+				return -1;
+			else
+				return 0;
 		else if(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT-20 && y < HEIGHT-10)
-			return true;
+			if (super.input[0] != null)
+				return -1;
+			else
+				return 1;
 		else
-			return false;
+			return -1;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (this.contain(e.getX(), e.getY())) {
+		int index = this.contain(e.getX(), e.getY());
+		if (this.contain(e.getX(), e.getY())>-1) {
 			System.out.print("Square clicked");
 			StoreClickPoints c1 = new StoreClickPoints(e.getX() + currentX, 
-												e.getY() + currentY, this);
+												e.getY() + currentY, this,index);
 		}
 	}
 
