@@ -11,6 +11,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  * 
  * @author Tarun Snehith Kishore Reddy Karna
+ * @since 03-16-2020
+ * @version 1.0
  *
  */
 class LoadManager implements ActionListener {

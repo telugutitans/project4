@@ -10,13 +10,11 @@ import javax.swing.border.Border;
  * @Since 1-26-2020
  * @version 1.0
  */
-public class OptionsPanel extends JPanel {
+public class OptionsPanel extends JToolBar {
 	public OptionsPanel() {
-		Dimension size = new Dimension(-200, 600);
-		setPreferredSize(size);
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		setBorder(blackline);
-		setLayout(new GridLayout(7, 1));
+		setLayout(new GridLayout(1, 7));
 		for(int i=0; i<7; i++) {
 	        try {
 	          Class<?> ButtonClass = Class.forName("Button"+(i+1));

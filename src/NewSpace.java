@@ -1,3 +1,4 @@
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -10,32 +11,31 @@ import javax.swing.JFileChooser;
 import javax.swing.JTabbedPane;
 /**
  * 
- * @author Tarun snehith kishore reddy Karna
- * @since  02-21-2020
+ * @author Rohith Varma Gaddam
+ * @since  03-14-2020
  *
  */
 public class NewSpace implements ActionListener {
-	//private JTabbedPane tabbedPane;
-	//private ArrayList<DrawingCanvas> canvasArray;
 	private Frame frame;
+	static private int newCount = 0;
 	public NewSpace(Frame frame) {
-		//this.tabbedPane = tabbedPane;
-		//this.canvasArray = array;
 		this.frame = frame;
 	}
 
 	@Override
+	
 	public void actionPerformed(ActionEvent e) {
-		JTabbedPane tabbedPane = frame.getTabbedPane();
-		int count = tabbedPane.getTabCount();
-		count = count+1;
-		DrawingCanvas c = new DrawingCanvas();
-		tabbedPane.add("Tab"+count,c);
-		ArrayList<DrawingCanvas> canvasArray = frame.getCanvasArray();
-		canvasArray.add(c);
-		System.out.println("size of canvas array"+canvasArray.size());
-		frame.setCanvasArray(canvasArray);
-		frame.setTabbedPane(tabbedPane);
+		if(newCount == 0) {
+			Container content = frame.getContentPane();
+			content.add(new OptionsPanel());
+			JTabbedPane pane = new JTabbedPane();
+			frame.setTabbedPane(pane);
+			content.add(pane);
+			pane.add(new DrawingCanvas());
+			newCount++;
+		}
+		frame.setTabbedPane(new JTabbedPane());
+		
 	}
 
 	public static void addActionListener(NewSpace newspace) {

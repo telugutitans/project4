@@ -6,8 +6,8 @@ import javax.swing.JButton;
 
 /**
  * 
- * @author Tarun snehith kishore reddy Karna
- * @since 01-27-2022
+ * @author Sree Pradeep Kumar Relangi
+ * @since 03-10-2020
  * @version 1.0
  *
  */
@@ -29,15 +29,9 @@ public class Button4 extends JButton {
 		} else {
 			g.setColor(getBackground());
 		}
-		g.fillRect(20, 10, getWidth()-40, getHeight()-25);
+		g.fillRect(20, 10, getWidth() - 40, getHeight() - 25);
 		super.paintComponent(g);
 	}
 
-	protected void paintBorder(Graphics g) {
-		g.setColor(getForeground());
-		g.drawRect(20, 10, getWidth()-40, getHeight()-25);
-		g.drawRect(40, 25, 10, 10);
-		g.drawRect(40, 45, 10, 10);
-		g.drawRect(250, 35, 10, 10);
-	}
+	
 }

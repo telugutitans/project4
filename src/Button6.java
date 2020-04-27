@@ -6,8 +6,8 @@ import javax.swing.JButton;
 
 /**
  * 
- * @author Nikitha Chilivery
- * @since 01-27-2022
+ * @author Rohith Varma Gaddam
+ * @since 03-10-2020
  * @version 1.0
  *
  */
@@ -33,11 +33,5 @@ public class Button6 extends JButton {
 		super.paintComponent(g);
 	}
 
-	protected void paintBorder(Graphics g) {
-		g.setColor(getForeground());
-		g.drawRect(20, 10, getWidth()-40, getHeight()-25);
-		g.drawRect(30, 25, 10, 30);
-		
-		g.drawRect(250, 25, 10, 30);
-	}
+	
 }

@@ -33,11 +33,5 @@ public class Button3 extends JButton {
 		super.paintComponent(g);
 	}
 
-	protected void paintBorder(Graphics g) {
-		g.setColor(getForeground());
-		g.drawRect(20, 10, getWidth()-40, getHeight()-25);
-		g.drawRect(40, 35, 10, 10);
-		g.drawRect(250, 25, 10, 10);
-		g.drawRect(250, 45, 10, 10);
-	}
+	
 }

@@ -8,8 +8,7 @@ import javax.swing.JLabel;
 
 /**
  * @author Nikitha,Ashwath,Tarun Snehith Kishore Reddy Karna,
- * @Since 1-26-2020
- * @updatedon 2-19-2020
+ * @Since 03-10-2020
  * @version 1.0
  */
 
@@ -18,47 +17,48 @@ public class Frame extends JFrame {
 	private static final String FRAME_TITLE = "Team4";
 	JFrame frame = new JFrame("Swing Tester");
 	private JTabbedPane tabbedPane;
-	private OptionsPanel options;
 	private ArrayList<DrawingCanvas> canvasArray = new ArrayList<DrawingCanvas>();
-
+	JMenuBar menubar;
 	public Frame() {
 		this.setTitle(FRAME_TITLE);
 		this.setMinimumSize(new Dimension(800, 600));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container content = this.getContentPane();
-		content.setLayout(new BoxLayout(content, BoxLayout.X_AXIS));
-		options = new OptionsPanel();
-		content.add(options);
-		tabbedPane = new JTabbedPane();
-		content.add(tabbedPane);
-		DrawingCanvas c = new DrawingCanvas(); 
-		tabbedPane.add("Tab1",c);
-		canvasArray.add(c);
-		addMenu(tabbedPane);
+		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+		menubar = new JMenuBar();
+		menubar.setMinimumSize(new Dimension(800,40));
+		final JLabel label = new JLabel();
+		this.setJMenuBar(menubar);
+		addFile();
+		addProject();
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 	
-	public void addMenu(JTabbedPane tabbedPane) {
-		JMenuBar menubar = new JMenuBar();
-		menubar.setMinimumSize(new Dimension(60, 40));
-		final JLabel label = new JLabel();
-		this.setJMenuBar(menubar);
-		JMenu menu = new JMenu("Menu");
+	public void addFile() {
+		JMenu menu = new JMenu("File");
 		menubar.add(menu);
+		JMenuItem newspace = new JMenuItem("New");
+		JMenuItem load = new JMenuItem("Open");
 		JMenuItem save = new JMenuItem("Save");
-		JMenuItem load = new JMenuItem("Load");
-		JMenuItem compile = new JMenuItem("Compile");
-		JMenuItem newspace = new JMenuItem("NewSpace");
 		load.addActionListener(new LoadManager(this));
 		save.addActionListener(new SaveManager(this));
-		compile.addActionListener(new Compile(this));
 		newspace.addActionListener(new NewSpace(this));
 		menu.add(save);
 		menu.add(load);
-		menu.add(compile);
 		menu.add(newspace);
+	}
+	
+	public void addProject() {
+		JMenu menu = new JMenu("Project");
+		menubar.add(menu);
+		JMenuItem compile = new JMenuItem("Compile");
+		JMenuItem translate = new JMenuItem("Translate");
+		compile.addActionListener(new LoadManager(this));
+		translate.addActionListener(new SaveManager(this));
+		menu.add(compile);
+		menu.add(translate);
 	}
 	
 	public JTabbedPane getTabbedPane()

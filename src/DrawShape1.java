@@ -1,3 +1,11 @@
+/**
+ * This class implements the drawing of shapes drag and drop within canvas.
+ * 
+ * @author Nikitha
+ * @created on 03-11-2020
+ * @version 1.0
+ *
+ */
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

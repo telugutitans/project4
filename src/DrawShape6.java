@@ -6,6 +6,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * 
+ * @author Tarun Snehith Kishore Reddy Karna
+ * @since 03-11-2020
+ * @version 1.0
+ *
+ */
+
+
 public class DrawShape6 extends DrawShape implements MouseListener, MouseMotionListener {
 	private int currentX;
 	private int currentY;

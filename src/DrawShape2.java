@@ -5,7 +5,14 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
+/**
+ * This class implements the drawing of shapes drag and drop within canvas.
+ * 
+ * @author Nikitha
+ * @created on 03-11-2020
+ * @version 1.0
+ *
+ */
 public class DrawShape2 extends DrawShape implements MouseListener, MouseMotionListener {
 	private int currentX;
 	private int currentY;

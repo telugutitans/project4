@@ -8,6 +8,15 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author Tarun Snehith Kishore Reddy Karna
+ * @since 03-11-2020
+ * @version 1.0
+ *
+ */
+
+
 public class DrawShape7 extends DrawShape implements MouseListener, MouseMotionListener {
 	private int currentX;
 	private int currentY;

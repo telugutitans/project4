@@ -7,7 +7,7 @@ import javax.swing.JButton;
 /**
  * 
  * @author Rohith Varma Gaddam
- * @since 01-27-2022
+ * @since 03-10-2020
  * @version 1.0
  *
  */
@@ -17,8 +17,6 @@ public class Button1 extends JButton {
 
 	public Button1() {
 		super("(");
-		Dimension size = getPreferredSize();
-		setPreferredSize(size);
 		setContentAreaFilled(false);
 		event = new SelectionEvent(this, 1);
 	}
@@ -29,13 +27,9 @@ public class Button1 extends JButton {
 		} else {
 			g.setColor(getBackground());
 		}
-		g.fillRect(20, 10, getWidth()-40, getHeight()-25);
+		g.fillRect(20, 10, getWidth()-40, getWidth()-40);
 		super.paintComponent(g);
 	}
 
-	protected void paintBorder(Graphics g) {
-		g.setColor(getForeground());
-		g.drawRect(20, 10, getWidth()-40, getHeight()-25);
-		g.drawRect(250, 35, 10, 10);
-	}
+	
 }
