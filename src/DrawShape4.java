@@ -6,39 +6,32 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionListener {
-	private int currentX;
-	private int currentY;
 	private int relativeX;
 	private int relativeY;
-	private int HEIGHT = 60;
-	private int WIDTH = 200;
 
 	public DrawShape4(int posX, int posY, DrawingCanvas c) {
-		super(c, 4, posX, posY);
-		currentX = posX;
-		currentY = posY;
-		Dimension size = new Dimension(HEIGHT, WIDTH);
-		this.setPreferredSize(size);
-		this.setBounds(currentX, currentY, 200, 60);
+		super();
+		operator = ">";
+		positionX = posX;
+		positionY = posY;
+		canvas = c;
+		this.setBounds(positionX, positionY, 200, 60);
+		packOperator();
+		addToConnector(new LinkageDot(this,"O"));
+		addToConnector(new LinkageDot(this,"I"));
+		addToConnector(new LinkageDot(this,"I"));
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}
 
-	public void paint(Graphics g) {
-		g.setColor(Color.ORANGE);
-		g.drawRect(1, 1, WIDTH - 5, HEIGHT - 5);
-		g.setColor(Color.BLACK);
-		g.fillRect(WIDTH - 20, HEIGHT/2-5, 10, 10);
-		g.fillRect(WIDTH/2-90, HEIGHT/2-20, 10, 10);
-		g.fillRect(WIDTH/2-90, HEIGHT-20, 10, 10);
-		g.drawString(">", WIDTH/2, HEIGHT/2);
-	}
-
 	@Override
 	public void mousePressed(MouseEvent e) {
-		relativeX = currentX - e.getX();
-		relativeY = currentY - e.getY();
+		relativeX = positionX - e.getX();
+		relativeY = positionY - e.getY();
 	}
 
 	@Override
@@ -46,55 +39,48 @@ public class DrawShape4 extends DrawShape implements MouseListener, MouseMotionL
 		int x1 = e.getX();
 		int y1 = e.getY();
 		setLocation(x1 + relativeX, y1 + relativeY);
-		currentX = x1 + relativeX;
-		currentY = y1 + relativeY;
-		for (int i = 0; i < super.connections.size(); i++) {
-			Point[] shapePoints = super.connections.get(i);
-			for (int j = 0; j < super.canvas.lineArray.size(); j++) {
-				Point[] linePoints = super.canvas.lineArray.get(j);
-				if (linePoints[0].equals(shapePoints[0])) {
-					linePoints[0].x = currentX + shapePoints[1].x;
-					linePoints[0].y = currentY + shapePoints[1].y;
-					shapePoints[0].x = currentX + shapePoints[1].x;
-					shapePoints[0].y = currentY + shapePoints[1].y;
-				} else if (linePoints[1].equals(shapePoints[0])) {
-					linePoints[1].x = currentX + shapePoints[1].x;
-					linePoints[1].y = currentY + shapePoints[1].y;
-					shapePoints[0].x = currentX + shapePoints[1].x;
-					shapePoints[0].y = currentY + shapePoints[1].y;
-				}
-			}
-			super.canvas.repaint();
-		}
+		positionX = x1 + relativeX;
+		positionY = y1 + relativeY;
+		canvas.repaint();
 	}
 
-	private int contain(int x, int y) {
-		if (x > WIDTH - 20 && x < WIDTH - 10 && y > HEIGHT/2-5 && y < HEIGHT/2+5)
-			if (super.output[0] != null)
-				return -1;
+	public void deleteShape()
+	{
+		int i=0; 
+		while(i<canvas.lineArray.size()) {
+			if(canvas.lineArray.get(i)[0].shape.equals(this)||
+					canvas.lineArray.get(i)[1].shape.equals(this)) {
+				canvas.lineArray.get(i)[0].connected=false;
+				canvas.lineArray.get(i)[1].connected=false;
+				canvas.lineArray.get(i)[0].setBackground(Color.WHITE);
+				canvas.lineArray.get(i)[1].setBackground(Color.WHITE);
+				canvas.lineArray.remove(i);
+			}
 			else
-				return 2;
-		else if(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT/2-20 && y < HEIGHT/2-10)
-			if (super.input[0] != null)
-				return -1;
-			else
-				return 0;
-		else if(x > WIDTH/2-90 && x < WIDTH/2-80 && y > HEIGHT-20 && y < HEIGHT-10)
-			if (super.input[0] != null)
-				return -1;
-			else
-				return 1;
-		else
-			return -1;
+				i++;
+		}
+		canvas.repaint();
+		for(i=0; i<canvas.shapeObject.size(); i++) {
+			if(canvas.shapeObject.get(i).equals(this))
+				canvas.shapeObject.remove(i);
+		}
+		canvas.remove(this);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		int index = this.contain(e.getX(), e.getY());
-		if (this.contain(e.getX(), e.getY())>-1) {
-			System.out.print("Square clicked");
-			StoreClickPoints c1 = new StoreClickPoints(e.getX() + currentX, 
-												e.getY() + currentY, this,index);
+		if(SwingUtilities.isRightMouseButton(e))
+			deleteShape();
+		else {
+			if(value==null) {
+				value = JOptionPane.showInputDialog(null,
+						 "What is your value?",
+						 "Enter the value",
+						 JOptionPane.QUESTION_MESSAGE);
+			}
+			else {
+				JOptionPane.showMessageDialog(null,value,"Shape value", 1 );
+			}
 		}
 	}
 

@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -31,6 +32,7 @@ public class SaveManager implements ActionListener {
 		DrawingCanvas	canvas = canvasArray.get(index);
 		FileOutputStream fileOutStream = null;
 		ObjectOutputStream objectOutStream = null;
+		Component[] tabs = Frame.tabbedPane.getComponents();
 		try {
 			JFileChooser chosenFile = new JFileChooser();
 			int showSaveDialog = chosenFile.showSaveDialog(null);
@@ -39,8 +41,7 @@ public class SaveManager implements ActionListener {
 			}
 			fileOutStream = new FileOutputStream(new File(fileName));
 			objectOutStream = new ObjectOutputStream(fileOutStream);
-			objectOutStream.writeObject(canvas.lineArray);
-			objectOutStream.writeObject(canvas.shapeObject);
+			objectOutStream.writeObject(tabs);
 			fileOutStream.flush();
 			if (objectOutStream != null) {
 				objectOutStream.close();

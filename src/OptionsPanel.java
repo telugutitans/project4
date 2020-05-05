@@ -14,8 +14,8 @@ public class OptionsPanel extends JToolBar {
 	public OptionsPanel() {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		setBorder(blackline);
-		setLayout(new GridLayout(1, 7));
-		for(int i=0; i<7; i++) {
+		setLayout(new GridLayout(1, 8));
+		for(int i=0; i<8; i++) {
 	        try {
 	          Class<?> ButtonClass = Class.forName("Button"+(i+1));
 	          add((JButton) ButtonClass.getDeclaredConstructor().newInstance());

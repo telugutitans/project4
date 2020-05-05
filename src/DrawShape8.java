@@ -18,20 +18,20 @@ import javax.swing.SwingUtilities;
  */
 
 
-public class DrawShape6 extends DrawShape implements MouseListener, MouseMotionListener {
+public class DrawShape8 extends DrawShape implements MouseListener, MouseMotionListener {
 	private int relativeX;
 	private int relativeY;
 
-	public DrawShape6(int posX, int posY, DrawingCanvas c) {
+	public DrawShape8(int posX, int posY, DrawingCanvas c) {
 		super();
-		operator = "||";
+		operator = "#";
 		positionX = posX;
 		positionY = posY;
 		canvas = c;
 		this.setBounds(positionX, positionY, 200, 60);
 		packOperator();
-		addToConnector(new LinkageBar(this,"I"));
-		addToConnector(new LinkageBar(this,"O"));
+		addToConnector(new LinkageDot(this,"I"));
+		addToConnector(new LinkageDot(this,"O"));
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}
@@ -52,8 +52,7 @@ public class DrawShape6 extends DrawShape implements MouseListener, MouseMotionL
 		positionY = y1 + relativeY;
 		canvas.repaint();
 	}
-
-
+	
 	public void deleteShape()
 	{
 		int i=0;
@@ -76,20 +75,19 @@ public class DrawShape6 extends DrawShape implements MouseListener, MouseMotionL
 		}
 		canvas.remove(this);
 	}
-
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(SwingUtilities.isRightMouseButton(e))
 			deleteShape();
 		else {
 			if(value==null) {
-				value = JOptionPane.showInputDialog(null,
-						 "What is your value?",
-						 "Enter the value",
-						 JOptionPane.QUESTION_MESSAGE);
-			}
-			else {
-				JOptionPane.showMessageDialog(null,value,"Shape value", 1 );
+				int i = Frame.tabbedPane.getTabCount();
+				DrawingCanvas c = new DrawingCanvas();
+				Frame.canvasArray.add(c);
+				Frame.tabbedPane.add(c,"tab"+(i+1));
+				System.out.println(i);
+				value = Integer.toString(i);
 			}
 		}
 	}

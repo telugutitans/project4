@@ -16,15 +16,17 @@ import javax.swing.JLabel;
 public class Frame extends JFrame {
 	private static final String FRAME_TITLE = "Team4";
 	JFrame frame = new JFrame("Swing Tester");
-	private JTabbedPane tabbedPane;
-	private ArrayList<DrawingCanvas> canvasArray = new ArrayList<DrawingCanvas>();
+	static JTabbedPane tabbedPane;
+	static ArrayList<DrawingCanvas> canvasArray;
 	JMenuBar menubar;
 	public Frame() {
 		this.setTitle(FRAME_TITLE);
+		this.setSize(800, 600);
 		this.setMinimumSize(new Dimension(800, 600));
+		this.setResizable(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container content = this.getContentPane();
-		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+		content.setLayout(new BorderLayout());
 		menubar = new JMenuBar();
 		menubar.setMinimumSize(new Dimension(800,40));
 		final JLabel label = new JLabel();
@@ -55,8 +57,8 @@ public class Frame extends JFrame {
 		menubar.add(menu);
 		JMenuItem compile = new JMenuItem("Compile");
 		JMenuItem translate = new JMenuItem("Translate");
-		compile.addActionListener(new LoadManager(this));
-		translate.addActionListener(new SaveManager(this));
+		compile.addActionListener(new Compile(this));
+		translate.addActionListener(new Translate());
 		menu.add(compile);
 		menu.add(translate);
 	}

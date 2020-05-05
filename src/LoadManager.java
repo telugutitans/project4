@@ -1,3 +1,6 @@
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,14 +28,9 @@ class LoadManager implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		JTabbedPane pane = frame.getTabbedPane();
-		int index = pane.getSelectedIndex();
-		ArrayList<DrawingCanvas> canvasArray = frame.getCanvasArray();
-		DrawingCanvas	canvas = canvasArray.get(index);
-		System.out.println("index of tab:"+index);
-		//DrawingCanvas canvas = (DrawingCanvas) pane.getTabComponentAt(index);
 		FileInputStream fileInStream = null;
 		ObjectInputStream objectInStream = null;
+		Component[] tabsToOpen;
 		try {
 			JFileChooser chosenFile = new JFileChooser();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("SER516", "ser");
@@ -42,10 +40,26 @@ class LoadManager implements ActionListener {
 				fileName = chosenFile.getSelectedFile().getAbsolutePath();
 				fileInStream = new FileInputStream(fileName);
 				objectInStream = new ObjectInputStream(fileInStream);
-				canvas.lineArray = (ArrayList<Point[]>) objectInStream.readObject();
-				canvas.shapeObject = (ArrayList<Object>) objectInStream.readObject();
-				canvas.load();
-				canvas.repaint();
+	            tabsToOpen = (Component[]) objectInStream.readObject();
+	            
+	    		Container content = frame.getContentPane();
+	    		content.removeAll();
+	    		content.add(new OptionsPanel(), BorderLayout.NORTH);
+	    		content.add(new LeftPanel(), BorderLayout.WEST);
+	    		JTabbedPane pane = new JTabbedPane();
+	    		frame.setTabbedPane(pane);
+	    		content.add(pane, BorderLayout.CENTER);
+	    		StoreClickPoints.link1=null;
+	    		StoreClickPoints.link2=null;
+	    		Frame.canvasArray = new ArrayList<DrawingCanvas>();
+	    		int i = 1;
+	            for (Component component : tabsToOpen) {
+	                DrawingCanvas tab = (DrawingCanvas) component;
+	                Frame.tabbedPane.add("Tab"+i , tab);
+	                Frame.canvasArray.add(tab);
+	                tab.repaint();
+	                i++;
+	            }
 			}
 			if (objectInStream != null) {
 				objectInStream.close();
